@@ -16,14 +16,9 @@ namespace TypingGame
         {
             InitializeComponent();
         }
-        //hallo
+       
         int correct = 0;
         int incorrect = 0;
-        private void Start_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Woord_KeyDown(object sender, KeyEventArgs e)
         {
             if (GegevenWoord.Text == Woord.Text && e.KeyCode == Keys.Enter)

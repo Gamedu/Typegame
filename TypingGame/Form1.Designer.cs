@@ -28,68 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Start = new System.Windows.Forms.Button();
             this.GegevenWoord = new System.Windows.Forms.Label();
             this.Woord = new System.Windows.Forms.TextBox();
             this.AantalCorrect = new System.Windows.Forms.Label();
             this.AantalIncorrect = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Start
-            // 
-            this.Start.Location = new System.Drawing.Point(339, 314);
-            this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(99, 23);
-            this.Start.TabIndex = 0;
-            this.Start.Text = "Start game";
-            this.Start.UseVisualStyleBackColor = true;
-            this.Start.Click += new System.EventHandler(this.Start_Click);
-            // 
             // GegevenWoord
             // 
             this.GegevenWoord.AutoSize = true;
-            this.GegevenWoord.Location = new System.Drawing.Point(147, 87);
+            this.GegevenWoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GegevenWoord.Location = new System.Drawing.Point(446, 50);
             this.GegevenWoord.Name = "GegevenWoord";
-            this.GegevenWoord.Size = new System.Drawing.Size(46, 17);
+            this.GegevenWoord.Size = new System.Drawing.Size(379, 135);
             this.GegevenWoord.TabIndex = 1;
             this.GegevenWoord.Text = "label1";
             // 
             // Woord
             // 
-            this.Woord.Location = new System.Drawing.Point(518, 87);
+            this.Woord.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Woord.Location = new System.Drawing.Point(403, 403);
             this.Woord.Name = "Woord";
-            this.Woord.Size = new System.Drawing.Size(100, 22);
+            this.Woord.Size = new System.Drawing.Size(489, 61);
             this.Woord.TabIndex = 2;
             this.Woord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Woord_KeyDown);
             // 
             // AantalCorrect
             // 
             this.AantalCorrect.AutoSize = true;
-            this.AantalCorrect.Location = new System.Drawing.Point(518, 139);
+            this.AantalCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AantalCorrect.Location = new System.Drawing.Point(1010, 537);
             this.AantalCorrect.Name = "AantalCorrect";
-            this.AantalCorrect.Size = new System.Drawing.Size(106, 17);
+            this.AantalCorrect.Size = new System.Drawing.Size(252, 39);
             this.AantalCorrect.TabIndex = 3;
             this.AantalCorrect.Text = "Aantal Correct :";
             // 
             // AantalIncorrect
             // 
             this.AantalIncorrect.AutoSize = true;
-            this.AantalIncorrect.Location = new System.Drawing.Point(518, 160);
+            this.AantalIncorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AantalIncorrect.Location = new System.Drawing.Point(989, 576);
             this.AantalIncorrect.Name = "AantalIncorrect";
-            this.AantalIncorrect.Size = new System.Drawing.Size(107, 17);
+            this.AantalIncorrect.Size = new System.Drawing.Size(282, 39);
             this.AantalIncorrect.TabIndex = 4;
-            this.AantalIncorrect.Text = "Aantal Incorrect";
+            this.AantalIncorrect.Text = "Aantal Incorrect : ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1330, 636);
             this.Controls.Add(this.AantalIncorrect);
             this.Controls.Add(this.AantalCorrect);
             this.Controls.Add(this.Woord);
             this.Controls.Add(this.GegevenWoord);
-            this.Controls.Add(this.Start);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -98,8 +90,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Label GegevenWoord;
         private System.Windows.Forms.TextBox Woord;
         private System.Windows.Forms.Label AantalCorrect;
