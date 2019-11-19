@@ -16,7 +16,7 @@ namespace TypingGame
         {
             InitializeComponent();
         }
-
+        //hallo
         int correct = 0;
         int incorrect = 0;
         private void Start_Click(object sender, EventArgs e)
