@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace TypingGame
 {
-    public partial class Form2 : Form
+    public partial class TimedTyping : Form
     {
-        public Form2()
+        public TimedTyping()
         {
             InitializeComponent();
             Word.Enabled = false;
         }
 
-        int score = 0;
+        int Score = 0;
         int Timeleft = 121;
 
         public void ResetWord()
@@ -29,8 +29,8 @@ namespace TypingGame
         {
             if (GivenWord.Text == Word.Text && e.KeyCode == Keys.Enter)
             {
-                score++;
-                Score.Text = "Score : " + score;
+                Score++;
+                Points.Text = "Punten : " + Score;
             }
             if (e.KeyCode == Keys.Enter)
             {
@@ -38,21 +38,12 @@ namespace TypingGame
             }
 
         }
-        public Form FormToShowOnClosing { get; set; }
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (null != FormToShowOnClosing)
-                FormToShowOnClosing.Show();
-        }
-
         private void TimerCount(object sender, EventArgs e)
         {
             Timeleft--;
             if (Timeleft == 0)
-
-                Timer.Stop();
+            Timer.Stop();
             TimeLeft.Text = "Tijd over : " + Timeleft.ToString();
-
         }
 
         private void StartTest(object sender, EventArgs e)
@@ -63,6 +54,20 @@ namespace TypingGame
             Timer.Start();
             Start.Enabled = false;
             Word.Enabled = true;
+        }
+
+        private void Return_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StartScreen asd = new StartScreen();
+            asd.FormToShowOnClosing3 = this;
+            asd.Show();
+        }
+        public Form FormToShowOnClosing { get; set; }
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (null != FormToShowOnClosing)
+                FormToShowOnClosing.Show();
         }
     }
 }
