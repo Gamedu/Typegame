@@ -28,51 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.GegevenWoord = new System.Windows.Forms.Label();
-            this.Woord = new System.Windows.Forms.TextBox();
-            this.AantalCorrect = new System.Windows.Forms.Label();
-            this.AantalIncorrect = new System.Windows.Forms.Label();
+            this.GivenWord = new System.Windows.Forms.Label();
+            this.Word = new System.Windows.Forms.TextBox();
+            this.CorrectScore = new System.Windows.Forms.Label();
+            this.IncorrectScore = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // GegevenWoord
+            // GivenWord
             // 
-            this.GegevenWoord.AutoSize = true;
-            this.GegevenWoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GegevenWoord.Location = new System.Drawing.Point(363, 45);
-            this.GegevenWoord.Name = "GegevenWoord";
-            this.GegevenWoord.Size = new System.Drawing.Size(586, 135);
-            this.GegevenWoord.TabIndex = 1;
-            this.GegevenWoord.Text = "voorbeeld";
+            this.GivenWord.AutoSize = true;
+            this.GivenWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GivenWord.Location = new System.Drawing.Point(363, 45);
+            this.GivenWord.Name = "GivenWord";
+            this.GivenWord.Size = new System.Drawing.Size(586, 135);
+            this.GivenWord.TabIndex = 1;
+            this.GivenWord.Text = "voorbeeld";
             // 
-            // Woord
+            // Word
             // 
-            this.Woord.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Woord.Location = new System.Drawing.Point(403, 403);
-            this.Woord.Name = "Woord";
-            this.Woord.Size = new System.Drawing.Size(489, 61);
-            this.Woord.TabIndex = 2;
-            this.Woord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Woord_KeyDown);
+            this.Word.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Word.Location = new System.Drawing.Point(403, 403);
+            this.Word.Name = "Word";
+            this.Word.Size = new System.Drawing.Size(489, 61);
+            this.Word.TabIndex = 2;
+            this.Word.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Word_KeyDown);
             // 
-            // AantalCorrect
+            // CorrectScore
             // 
-            this.AantalCorrect.AutoSize = true;
-            this.AantalCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AantalCorrect.Location = new System.Drawing.Point(1075, 537);
-            this.AantalCorrect.Name = "AantalCorrect";
-            this.AantalCorrect.Size = new System.Drawing.Size(244, 38);
-            this.AantalCorrect.TabIndex = 3;
-            this.AantalCorrect.Text = "Aantal Correct :";
+            this.CorrectScore.AutoSize = true;
+            this.CorrectScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CorrectScore.Location = new System.Drawing.Point(1075, 537);
+            this.CorrectScore.Name = "CorrectScore";
+            this.CorrectScore.Size = new System.Drawing.Size(244, 38);
+            this.CorrectScore.TabIndex = 3;
+            this.CorrectScore.Text = "Aantal Correct :";
             // 
-            // AantalIncorrect
+            // IncorrectScore
             // 
-            this.AantalIncorrect.AutoSize = true;
-            this.AantalIncorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AantalIncorrect.Location = new System.Drawing.Point(1057, 575);
-            this.AantalIncorrect.Name = "AantalIncorrect";
-            this.AantalIncorrect.Size = new System.Drawing.Size(272, 38);
-            this.AantalIncorrect.TabIndex = 4;
-            this.AantalIncorrect.Text = "Aantal Incorrect : ";
+            this.IncorrectScore.AutoSize = true;
+            this.IncorrectScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IncorrectScore.Location = new System.Drawing.Point(1057, 575);
+            this.IncorrectScore.Name = "IncorrectScore";
+            this.IncorrectScore.Size = new System.Drawing.Size(272, 38);
+            this.IncorrectScore.TabIndex = 4;
+            this.IncorrectScore.Text = "Aantal Incorrect : ";
             // 
             // button1
             // 
@@ -90,10 +90,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 653);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.AantalIncorrect);
-            this.Controls.Add(this.AantalCorrect);
-            this.Controls.Add(this.Woord);
-            this.Controls.Add(this.GegevenWoord);
+            this.Controls.Add(this.IncorrectScore);
+            this.Controls.Add(this.CorrectScore);
+            this.Controls.Add(this.Word);
+            this.Controls.Add(this.GivenWord);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -102,10 +102,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label GegevenWoord;
-        private System.Windows.Forms.TextBox Woord;
-        private System.Windows.Forms.Label AantalCorrect;
-        private System.Windows.Forms.Label AantalIncorrect;
+        private System.Windows.Forms.Label GivenWord;
+        private System.Windows.Forms.TextBox Word;
+        private System.Windows.Forms.Label CorrectScore;
+        private System.Windows.Forms.Label IncorrectScore;
         private System.Windows.Forms.Button button1;
     }
 }

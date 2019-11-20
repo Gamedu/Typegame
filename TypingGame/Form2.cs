@@ -15,22 +15,26 @@ namespace TypingGame
         public Form2()
         {
             InitializeComponent();
+            Word.Enabled = false;
         }
 
         int score = 0;
-        int Tijdover = 120;
-        private void Woord_KeyDown(object sender, KeyEventArgs e)
+        int Timeleft = 121;
+
+        public void ResetWord()
         {
-            if (GegevenWoord.Text == Woord.Text && e.KeyCode == Keys.Enter)
+            Word.Text = string.Empty;
+        }
+        private void CheckAnswer(object sender, KeyEventArgs e)
+        {
+            if (GivenWord.Text == Word.Text && e.KeyCode == Keys.Enter)
             {
                 score++;
                 Score.Text = "Score : " + score;
-
-                timer1.Start();
-                timer1.Tick += new EventHandler(timer1_Tick);
-                timer1.Interval = 1000; // 1 second
-                timer1.Start();
-                Timer.Text = Tijdover.ToString();
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                ResetWord();
             }
 
         }
@@ -41,14 +45,24 @@ namespace TypingGame
                 FormToShowOnClosing.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void TimerCount(object sender, EventArgs e)
         {
-            Tijdover--;
-            if (Tijdover== 0)
+            Timeleft--;
+            if (Timeleft == 0)
 
-                timer1.Stop();
-            Timer.Text = "Timer : " + Tijdover.ToString();
+                Timer.Stop();
+            TimeLeft.Text = "Tijd over : " + Timeleft.ToString();
 
+        }
+
+        private void StartTest(object sender, EventArgs e)
+        {
+            Timer.Start();
+            Timer.Tick += new EventHandler(TimerCount);
+            Timer.Interval = 1000;
+            Timer.Start();
+            Start.Enabled = false;
+            Word.Enabled = true;
         }
     }
 }

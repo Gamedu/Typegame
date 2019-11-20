@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Score = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Timer = new System.Windows.Forms.Label();
-            this.GegevenWoord = new System.Windows.Forms.Label();
-            this.Woord = new System.Windows.Forms.TextBox();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.TimeLeft = new System.Windows.Forms.Label();
+            this.GivenWord = new System.Windows.Forms.Label();
+            this.Word = new System.Windows.Forms.TextBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.Start = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,43 +49,54 @@
             this.Score.TabIndex = 0;
             this.Score.Text = "Score : ";
             // 
-            // Timer
+            // TimeLeft
             // 
-            this.Timer.AutoSize = true;
-            this.Timer.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Timer.Location = new System.Drawing.Point(1147, 53);
-            this.Timer.Name = "Timer";
-            this.Timer.Size = new System.Drawing.Size(96, 38);
-            this.Timer.TabIndex = 1;
-            this.Timer.Text = "Tijd : ";
+            this.TimeLeft.AutoSize = true;
+            this.TimeLeft.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeLeft.Location = new System.Drawing.Point(1090, 56);
+            this.TimeLeft.Name = "TimeLeft";
+            this.TimeLeft.Size = new System.Drawing.Size(156, 38);
+            this.TimeLeft.TabIndex = 1;
+            this.TimeLeft.Text = "Tijd over :";
             // 
-            // GegevenWoord
+            // GivenWord
             // 
-            this.GegevenWoord.AutoSize = true;
-            this.GegevenWoord.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GegevenWoord.Location = new System.Drawing.Point(382, 71);
-            this.GegevenWoord.Name = "GegevenWoord";
-            this.GegevenWoord.Size = new System.Drawing.Size(585, 134);
-            this.GegevenWoord.TabIndex = 2;
-            this.GegevenWoord.Text = "voorbeeld";
+            this.GivenWord.AutoSize = true;
+            this.GivenWord.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GivenWord.Location = new System.Drawing.Point(382, 71);
+            this.GivenWord.Name = "GivenWord";
+            this.GivenWord.Size = new System.Drawing.Size(585, 134);
+            this.GivenWord.TabIndex = 2;
+            this.GivenWord.Text = "voorbeeld";
             // 
-            // Woord
+            // Word
             // 
-            this.Woord.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Woord.Location = new System.Drawing.Point(420, 357);
-            this.Woord.Name = "Woord";
-            this.Woord.Size = new System.Drawing.Size(489, 62);
-            this.Woord.TabIndex = 3;
-            this.Woord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Woord_KeyDown);
+            this.Word.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Word.Location = new System.Drawing.Point(420, 357);
+            this.Word.Name = "Word";
+            this.Word.Size = new System.Drawing.Size(489, 62);
+            this.Word.TabIndex = 3;
+            this.Word.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CheckAnswer);
+            // 
+            // Start
+            // 
+            this.Start.Location = new System.Drawing.Point(593, 450);
+            this.Start.Name = "Start";
+            this.Start.Size = new System.Drawing.Size(75, 23);
+            this.Start.TabIndex = 4;
+            this.Start.Text = "Start";
+            this.Start.UseVisualStyleBackColor = true;
+            this.Start.Click += new System.EventHandler(this.StartTest);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 653);
-            this.Controls.Add(this.Woord);
-            this.Controls.Add(this.GegevenWoord);
-            this.Controls.Add(this.Timer);
+            this.Controls.Add(this.Start);
+            this.Controls.Add(this.Word);
+            this.Controls.Add(this.GivenWord);
+            this.Controls.Add(this.TimeLeft);
             this.Controls.Add(this.Score);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -97,10 +109,11 @@
         #endregion
 
         private System.Windows.Forms.Label Score;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label Timer;
-        private System.Windows.Forms.Label GegevenWoord;
-        private System.Windows.Forms.TextBox Woord;
+        private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Label TimeLeft;
+        private System.Windows.Forms.Label GivenWord;
+        private System.Windows.Forms.TextBox Word;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button Start;
     }
 }

@@ -19,20 +19,24 @@ namespace TypingGame
 
         int correct = 0;
         int incorrect = 0;
-        private void Woord_KeyDown(object sender, KeyEventArgs e)
+        private void Word_KeyDown(object sender, KeyEventArgs e)
         {
-            if (GegevenWoord.Text == Woord.Text && e.KeyCode == Keys.Enter)
+            if (GivenWord.Text == Word.Text && e.KeyCode == Keys.Enter)
             {
                 correct++;
-                AantalCorrect.Text = "Aantal Correct : " + correct;
-            }
-            if (GegevenWoord.Text != Woord.Text && e.KeyCode == Keys.Enter)
+                CorrectScore.Text = "Aantal Correct : " + correct;
+            }  
+            
+            if (GivenWord.Text != Word.Text && e.KeyCode == Keys.Enter)
             {
                 incorrect++;
-                AantalIncorrect.Text = "Aantal Incorrect : " + incorrect;
+                IncorrectScore.Text = "Aantal Incorrect : " + incorrect; 
             }
 
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                Word.Text = string.Empty;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
