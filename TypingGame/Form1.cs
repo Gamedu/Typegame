@@ -16,7 +16,7 @@ namespace TypingGame
         {
             InitializeComponent();
         }
-       
+
         int correct = 0;
         int incorrect = 0;
         private void Woord_KeyDown(object sender, KeyEventArgs e)
@@ -31,6 +31,16 @@ namespace TypingGame
                 incorrect++;
                 AantalIncorrect.Text = "Aantal Incorrect : " + incorrect;
             }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 asd = new Form2();
+            asd.FormToShowOnClosing = this;
+            asd.Show();
         }
     }
 }
