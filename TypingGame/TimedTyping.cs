@@ -19,7 +19,7 @@ namespace TypingGame
         }
 
         int Score = 0;
-        int Timeleft = 121;
+        int Timeleft = 61;
 
         public void ResetWord()
         {
@@ -36,19 +36,27 @@ namespace TypingGame
             {
                 ResetWord();
             }
-
         }
         private void TimerCount(object sender, EventArgs e)
         {
             Timeleft--;
             if (Timeleft == 0)
+            {
+                TimeLeft.Text = "Tijd over : " + Timeleft.ToString();
+                ResetGame();
+            }
+        }
+
+        public void ResetGame()
+        {
             Timer.Stop();
-            TimeLeft.Text = "Tijd over : " + Timeleft.ToString();
+            Word.Enabled = false;
+            Start.Enabled = true;
+            Timeleft = 60;
         }
 
         private void StartTest(object sender, EventArgs e)
         {
-            Timer.Start();
             Timer.Tick += new EventHandler(TimerCount);
             Timer.Interval = 1000;
             Timer.Start();
@@ -60,14 +68,14 @@ namespace TypingGame
         {
             this.Hide();
             StartScreen asd = new StartScreen();
-            asd.FormToShowOnClosing3 = this;
+            asd.GoToStartScreen = this;
             asd.Show();
         }
-        public Form FormToShowOnClosing { get; set; }
+        public Form GoToTimedTyping { get; set; }
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (null != FormToShowOnClosing)
-                FormToShowOnClosing.Show();
+            if (null != GoToTimedTyping)
+                GoToTimedTyping.Show();
         }
     }
 }

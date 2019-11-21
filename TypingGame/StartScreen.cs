@@ -20,7 +20,7 @@ namespace TypingGame
         {
             this.Hide();
             TimedTyping asd = new TimedTyping();
-            asd.FormToShowOnClosing = this;
+            asd.GoToTimedTyping = this;
             asd.Show();
         }
 
@@ -28,15 +28,15 @@ namespace TypingGame
         {
             this.Hide();
             SandboxTyping asd = new SandboxTyping();
-            asd.FormToShowOnClosing2 = this;
+            asd.GoToSandbox = this;
             asd.Show();
         }
 
-        public Form FormToShowOnClosing3 { get; set; }
+        public Form GoToStartScreen { get; set; }
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (null != FormToShowOnClosing3)
-                FormToShowOnClosing3.Show();
+            if (null != GoToStartScreen)
+                GoToStartScreen.Show();
         }
 
         private void StartScreen_Load(object sender, EventArgs e)

@@ -38,17 +38,17 @@ namespace TypingGame
                 Word2.Text = string.Empty;
             }
         }
-        public Form FormToShowOnClosing2 { get; set; }
+        public Form GoToSandbox { get; set; }
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (null != FormToShowOnClosing2)
-                FormToShowOnClosing2.Show();
+            if (null != GoToSandbox)
+                GoToSandbox.Show();
         }
         private void Return_Click(object sender, EventArgs e)
         {
             this.Hide();
             StartScreen asd = new StartScreen();
-            asd.FormToShowOnClosing3 = this;
+            asd.GoToStartScreen = this;
             asd.Show();
         }
     }
