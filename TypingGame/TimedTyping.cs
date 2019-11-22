@@ -12,17 +12,30 @@ namespace TypingGame
 {
     public partial class TimedTyping : Form
     {
+        List<string> Woorden = new List<string>();
+        Random rnd = new Random();
+
+        int Score = 0;
+
         public TimedTyping()
         {
             InitializeComponent();
             Word.Enabled = false;
+
+            Woorden.Add("groenten");
+            Woorden.Add("tevreden");
+            Woorden.Add("bruiloft");
+            Woorden.Add("samen");
+            Woorden.Add("zeven");
+            Woorden.Add("qualiteit");
+            Woorden.Add("medewerker");
+            Woorden.Add("controle");
+            Woorden.Add("kapot");
+            Woorden.Add("nederlaag");
         }
-
-        int Score = 0;
-        int Timeleft = 61;
-
-        public void ResetWord()
+        public void EnterWords()
         {
+            GenerateRandomWord();
             Word.Text = string.Empty;
         }
         private void CheckAnswer(object sender, KeyEventArgs e)
@@ -34,34 +47,33 @@ namespace TypingGame
             }
             if (e.KeyCode == Keys.Enter)
             {
-                ResetWord();
+                EnterWords();
             }
         }
+        int counter = 60;
         private void TimerCount(object sender, EventArgs e)
         {
-            Timeleft--;
-            if (Timeleft == 0)
+            counter--;
+            TimeLeft.Text = ("Tijd over : ") + counter.ToString();
+            if (counter == 0)
             {
-                TimeLeft.Text = "Tijd over : " + Timeleft.ToString();
-                ResetGame();
+                Timer.Stop();
+                MessageBox.Show("Tijd is op");
+                Score = 0;
+                Start.Enabled = true;
+                Start.Text = "Restart";
             }
         }
-
-        public void ResetGame()
+        public void StartTest(object sender, EventArgs e)
         {
-            Timer.Stop();
-            Word.Enabled = false;
-            Start.Enabled = true;
-            Timeleft = 60;
-        }
-
-        private void StartTest(object sender, EventArgs e)
-        {
+            int counter = 60;
             Timer.Tick += new EventHandler(TimerCount);
             Timer.Interval = 1000;
             Timer.Start();
-            Start.Enabled = false;
+            TimeLeft.Text = ("Tijd over : ") + counter.ToString();
             Word.Enabled = true;
+            Start.Enabled = false;
+            GenerateRandomWord();
         }
 
         private void Return_Click(object sender, EventArgs e)
@@ -72,10 +84,17 @@ namespace TypingGame
             asd.Show();
         }
         public Form GoToTimedTyping { get; set; }
+
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (null != GoToTimedTyping)
                 GoToTimedTyping.Show();
         }
+        public void GenerateRandomWord()
+        {
+            int Words = rnd.Next(Woorden.Count);
+            Convert.ToInt32(Words);
+            GivenWord.Text = Woorden[Words];
+        }  
     }
 }
