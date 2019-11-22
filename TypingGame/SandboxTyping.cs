@@ -12,6 +12,7 @@ namespace TypingGame
 {
     public partial class SandboxTyping : Form
     {
+        WordGenerator WordsFree = new WordGenerator();
         public SandboxTyping()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace TypingGame
             if (e.KeyCode == Keys.Enter)
             {
                 Word2.Text = string.Empty;
+                GivenWord2.Text = WordsFree.GenerateRandomWord();
             }
         }
         public Form GoToSandbox { get; set; }
@@ -50,6 +52,11 @@ namespace TypingGame
             StartScreen asd = new StartScreen();
             asd.GoToStartScreen = this;
             asd.Show();
+        }
+
+        private void SandboxTyping_Load(object sender, EventArgs e)
+        {
+            GivenWord2.Text = WordsFree.GenerateRandomWord();
         }
     }
 }

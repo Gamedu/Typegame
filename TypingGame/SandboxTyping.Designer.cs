@@ -41,9 +41,8 @@
             this.GivenWord2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GivenWord2.Location = new System.Drawing.Point(283, 88);
             this.GivenWord2.Name = "GivenWord2";
-            this.GivenWord2.Size = new System.Drawing.Size(586, 135);
+            this.GivenWord2.Size = new System.Drawing.Size(0, 135);
             this.GivenWord2.TabIndex = 2;
-            this.GivenWord2.Text = "voorbeeld";
             // 
             // Word2
             // 
@@ -96,6 +95,7 @@
             this.Controls.Add(this.GivenWord2);
             this.Name = "SandboxTyping";
             this.Text = "StartScreen";
+            this.Load += new System.EventHandler(this.SandboxTyping_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

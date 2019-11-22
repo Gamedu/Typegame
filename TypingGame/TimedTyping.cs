@@ -12,31 +12,20 @@ namespace TypingGame
 {
     public partial class TimedTyping : Form
     {
-        List<string> Woorden = new List<string>();
-        Random rnd = new Random();
+        WordGenerator WordsTime = new WordGenerator();
 
         int Score = 0;
+        int counter = 60;
 
         public TimedTyping()
         {
             InitializeComponent();
             Word.Enabled = false;
-
-            Woorden.Add("groenten");
-            Woorden.Add("tevreden");
-            Woorden.Add("bruiloft");
-            Woorden.Add("samen");
-            Woorden.Add("zeven");
-            Woorden.Add("qualiteit");
-            Woorden.Add("medewerker");
-            Woorden.Add("controle");
-            Woorden.Add("kapot");
-            Woorden.Add("nederlaag");
         }
         public void EnterWords()
         {
-            GenerateRandomWord();
             Word.Text = string.Empty;
+            GivenWord.Text = WordsTime.GenerateRandomWord();
         }
         private void CheckAnswer(object sender, KeyEventArgs e)
         {
@@ -50,7 +39,6 @@ namespace TypingGame
                 EnterWords();
             }
         }
-        int counter = 60;
         private void TimerCount(object sender, EventArgs e)
         {
             counter--;
@@ -68,12 +56,11 @@ namespace TypingGame
         {
             int counter = 60;
             Timer.Tick += new EventHandler(TimerCount);
-            Timer.Interval = 1000;
             Timer.Start();
             TimeLeft.Text = ("Tijd over : ") + counter.ToString();
             Word.Enabled = true;
             Start.Enabled = false;
-            GenerateRandomWord();
+            GivenWord.Text = WordsTime.GenerateRandomWord();
         }
 
         private void Return_Click(object sender, EventArgs e)
@@ -88,13 +75,7 @@ namespace TypingGame
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (null != GoToTimedTyping)
-                GoToTimedTyping.Show();
+                GoToTimedTyping.Show();          
         }
-        public void GenerateRandomWord()
-        {
-            int Words = rnd.Next(Woorden.Count);
-            Convert.ToInt32(Words);
-            GivenWord.Text = Woorden[Words];
-        }  
     }
 }

@@ -41,15 +41,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Score
+            // Points2
             // 
             this.Points2.AutoSize = true;
             this.Points2.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Points2.Location = new System.Drawing.Point(1147, 565);
-            this.Points2.Name = "Score";
+            this.Points2.Name = "Points2";
             this.Points2.Size = new System.Drawing.Size(128, 38);
             this.Points2.TabIndex = 0;
             this.Points2.Text = "Score : ";
+            // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000;
             // 
             // TimeLeft
             // 
@@ -67,9 +71,8 @@
             this.GivenWord.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GivenWord.Location = new System.Drawing.Point(249, 81);
             this.GivenWord.Name = "GivenWord";
-            this.GivenWord.Size = new System.Drawing.Size(585, 134);
+            this.GivenWord.Size = new System.Drawing.Size(0, 134);
             this.GivenWord.TabIndex = 2;
-            this.GivenWord.Text = "voorbeeld";
             // 
             // Word
             // 
@@ -103,11 +106,12 @@
             // Points
             // 
             this.Points.AutoSize = true;
+            this.Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Points.Location = new System.Drawing.Point(863, 440);
             this.Points.Name = "Points";
-            this.Points.Size = new System.Drawing.Size(53, 17);
+            this.Points.Size = new System.Drawing.Size(164, 25);
             this.Points.TabIndex = 6;
-            this.Points.Text = "Punten";
+            this.Points.Text = "Aantal woorden : ";
             // 
             // TimedTyping
             // 
