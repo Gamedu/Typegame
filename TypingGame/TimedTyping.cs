@@ -14,7 +14,7 @@ namespace TypingGame
     {
         WordGenerator WordsTime = new WordGenerator();
 
-        int Score = 0;
+        private int Score;
         int counter = 60;
 
         public TimedTyping()
@@ -29,7 +29,7 @@ namespace TypingGame
         }
         private void CheckAnswer(object sender, KeyEventArgs e)
         {
-            if (GivenWord.Text == Word.Text && e.KeyCode == Keys.Enter)
+            if (WordsTime.currentword == Word.Text && e.KeyCode == Keys.Enter)
             {
                 Score++;
                 Points.Text = "Punten : " + Score;
@@ -62,7 +62,6 @@ namespace TypingGame
             Start.Enabled = false;
             GivenWord.Text = WordsTime.GenerateRandomWord();
         }
-
         private void Return_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -71,11 +70,5 @@ namespace TypingGame
             asd.Show();
         }
         public Form GoToTimedTyping { get; set; }
-
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (null != GoToTimedTyping)
-                GoToTimedTyping.Show();          
-        }
     }
 }

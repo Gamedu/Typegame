@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TypingGame
 {
@@ -41,10 +42,11 @@ namespace TypingGame
 
         };
         private Random rnd = new Random();
+        public string currentword {get; private set;}
         public string GenerateRandomWord()
         {
-            return Woorden[rnd.Next(Woorden.Count)];
-            
+            currentword = Woorden[rnd.Next(Woorden.Count)];
+            return currentword;
         }
     }
 }

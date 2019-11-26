@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,8 +15,9 @@ namespace TypingGame
     {
         public StartScreen()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
+        public Form GoToStartScreen { get; set; }
         private void TimingTyping(object sender, EventArgs e)
         {
             this.Hide();
@@ -23,7 +25,6 @@ namespace TypingGame
             asd.GoToTimedTyping = this;
             asd.Show();
         }
-
         private void SandboxTyping(object sender, EventArgs e)
         {
             this.Hide();
@@ -31,14 +32,6 @@ namespace TypingGame
             asd.GoToSandbox = this;
             asd.Show();
         }
-
-        public Form GoToStartScreen { get; set; }
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (null != GoToStartScreen)
-                GoToStartScreen.Show();
-        }
-
         private void StartScreen_Load(object sender, EventArgs e)
         {
             foreach (var button in this.Controls.OfType<Button>())

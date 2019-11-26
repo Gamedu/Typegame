@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimedTyping));
             this.Points2 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.TimeLeft = new System.Windows.Forms.Label();
@@ -58,8 +59,10 @@
             // TimeLeft
             // 
             this.TimeLeft.AutoSize = true;
+            this.TimeLeft.BackColor = System.Drawing.Color.Transparent;
             this.TimeLeft.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeLeft.Location = new System.Drawing.Point(866, 105);
+            this.TimeLeft.ForeColor = System.Drawing.Color.Black;
+            this.TimeLeft.Location = new System.Drawing.Point(871, 81);
             this.TimeLeft.Name = "TimeLeft";
             this.TimeLeft.Size = new System.Drawing.Size(156, 38);
             this.TimeLeft.TabIndex = 1;
@@ -68,6 +71,7 @@
             // GivenWord
             // 
             this.GivenWord.AutoSize = true;
+            this.GivenWord.BackColor = System.Drawing.Color.Transparent;
             this.GivenWord.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GivenWord.Location = new System.Drawing.Point(249, 81);
             this.GivenWord.Name = "GivenWord";
@@ -85,7 +89,7 @@
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(458, 440);
+            this.Start.Location = new System.Drawing.Point(497, 440);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 4;
@@ -106,6 +110,7 @@
             // Points
             // 
             this.Points.AutoSize = true;
+            this.Points.BackColor = System.Drawing.Color.Transparent;
             this.Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Points.Location = new System.Drawing.Point(863, 440);
             this.Points.Name = "Points";
@@ -117,6 +122,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1112, 562);
             this.Controls.Add(this.Points);
             this.Controls.Add(this.Return);
@@ -126,7 +133,7 @@
             this.Controls.Add(this.TimeLeft);
             this.Controls.Add(this.Points2);
             this.Name = "TimedTyping";
-            this.Text = "Form2";
+            this.Text = "TimedTyping";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -138,7 +145,7 @@
         private System.Windows.Forms.Label Points2;
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Label TimeLeft;
-        private System.Windows.Forms.Label GivenWord;
+        public System.Windows.Forms.Label GivenWord;
         private System.Windows.Forms.TextBox Word;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button Start;
