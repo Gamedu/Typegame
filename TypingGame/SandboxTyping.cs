@@ -33,12 +33,21 @@ namespace TypingGame
         }
         private void WordTimer_Tick(object sender, EventArgs e)
         {
-            if (WordsFree.currentword == Word.Text)
+
+            if (GivenWord.Text.Length == Word.TextLength)
             {
-                Score++;
-                CorrectScore.Text = Score.ToString();
-                ClearWords();
+                if (WordsFree.currentword == Word.Text)
+                {
+                    Score++;
+                    CorrectScore.Text = Score.ToString();
+                    ClearWords();
+                }
+                else
+                {
+                    ClearWords();
+                }
             }
+
         }
         public void ClearWords()
         {

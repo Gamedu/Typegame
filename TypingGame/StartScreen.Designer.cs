@@ -77,7 +77,6 @@
             this.MaximumSize = new System.Drawing.Size(1130, 609);
             this.Name = "StartScreen";
             this.Text = "StartScreen";
-            this.Load += new System.EventHandler(this.StartScreen_Load);
             this.ResumeLayout(false);
 
         }

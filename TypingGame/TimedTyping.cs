@@ -26,7 +26,7 @@ namespace TypingGame
         }
         public void StartTest(object sender, EventArgs e)
         {
-            int counter = 60;
+            var counter = 60;
 
             Timer.Start();
             WordTimer.Start();
@@ -57,11 +57,18 @@ namespace TypingGame
         }
         private void CheckWord(object sender, EventArgs e)
         {
-            if (WordsTime.currentword == Word.Text)
+            if (GivenWord.Text.Length == Word.TextLength)
             {
-                Score++;
-                Points.Text = Score.ToString();
-                ClearWords();
+                if (WordsTime.currentword == Word.Text)
+                {
+                    Score++;
+                    Points.Text = Score.ToString();
+                    ClearWords();
+                }
+                else
+                {
+                    ClearWords();
+                }
             }
         }
         public void ClearWords()

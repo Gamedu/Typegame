@@ -58,7 +58,6 @@
             this.Word.Name = "Word";
             this.Word.Size = new System.Drawing.Size(489, 61);
             this.Word.TabIndex = 3;
-            //this.Word.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Word2_KeyDown_1);
             // 
             // CorrectScore
             // 
