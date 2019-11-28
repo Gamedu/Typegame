@@ -35,12 +35,10 @@
             this.TimeLeft = new System.Windows.Forms.Label();
             this.GivenWord = new System.Windows.Forms.Label();
             this.Word = new System.Windows.Forms.TextBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.Start = new System.Windows.Forms.Button();
             this.Return = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.Label();
             this.WordTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // Points2
@@ -56,7 +54,6 @@
             // Timer
             // 
             this.Timer.Interval = 1000;
-            this.Timer.Tick += new System.EventHandler(this.WordTimer_Tick);
             // 
             // TimeLeft
             // 
@@ -85,6 +82,7 @@
             // 
             this.Word.BackColor = System.Drawing.Color.Firebrick;
             this.Word.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Word.ForeColor = System.Drawing.Color.White;
             this.Word.Location = new System.Drawing.Point(299, 324);
             this.Word.Name = "Word";
             this.Word.Size = new System.Drawing.Size(489, 62);
@@ -124,7 +122,7 @@
             // 
             // WordTimer
             // 
-            this.WordTimer.Interval = 10;
+            this.WordTimer.Tick += new System.EventHandler(this.CheckWord);
             // 
             // TimedTyping
             // 
@@ -140,9 +138,9 @@
             this.Controls.Add(this.TimeLeft);
             this.Controls.Add(this.Points2);
             this.DoubleBuffered = true;
+            this.MaximumSize = new System.Drawing.Size(1130, 610);
             this.Name = "TimedTyping";
             this.Text = "TimedTyping";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,7 +153,6 @@
         private System.Windows.Forms.Label TimeLeft;
         public System.Windows.Forms.Label GivenWord;
         private System.Windows.Forms.TextBox Word;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button Return;
         private System.Windows.Forms.Label Points;

@@ -16,6 +16,13 @@ namespace TypingGame
         public StartScreen()
         {
             InitializeComponent();
+
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.TabStop = false;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+            }
         }
         public Form GoToStartScreen { get; set; }
         private void TimingTyping(object sender, EventArgs e)
@@ -31,15 +38,6 @@ namespace TypingGame
             SandboxTyping asd = new SandboxTyping();
             asd.GoToSandbox = this;
             asd.Show();
-        }
-        private void StartScreen_Load(object sender, EventArgs e)
-        {
-            foreach (var button in this.Controls.OfType<Button>())
-            {
-                button.TabStop = false;
-                button.FlatStyle = FlatStyle.Flat;
-                button.FlatAppearance.BorderSize = 0;
-            }
         }
     }
 }

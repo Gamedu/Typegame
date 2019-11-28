@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TypingGame
 {
     public partial class TimedTyping : Form
     {
-        WordGenerator WordsTime = new WordGenerator();
+        readonly WordGenerator WordsTime = new WordGenerator();
 
         private int Score;
-        int counter = 60;
+        private int counter = 60;
 
         public TimedTyping()
         {
             InitializeComponent();
+            Timer.Tick += new EventHandler(TimerCount);
             Word.Enabled = false;
+
             foreach (var button in this.Controls.OfType<Button>())
             {
                 button.TabStop = false;
@@ -28,10 +24,18 @@ namespace TypingGame
                 button.FlatAppearance.BorderSize = 0;
             }
         }
-        public void EnterWords()
+        public void StartTest(object sender, EventArgs e)
         {
-            Word.Text = string.Empty;
+            int counter = 60;
+
+            Timer.Start();
+            WordTimer.Start();
+            
+            Word.Enabled = true;
+            Start.Enabled = false;
+            
             GivenWord.Text = WordsTime.GenerateRandomWord();
+            TimeLeft.Text = counter.ToString();
         }
         private void TimerCount(object sender, EventArgs e)
         {
@@ -40,20 +44,29 @@ namespace TypingGame
             if (counter == 0)
             {
                 Timer.Stop();
-                MessageBox.Show("Tijd is op");
+
                 Score = 0;
+                counter = 60;
+
                 Start.Enabled = true;
+                Word.Enabled = false;
+
+                GivenWord.Text = "";
+                MessageBox.Show("Tijd is op");
             }
         }
-        public void StartTest(object sender, EventArgs e)
+        private void CheckWord(object sender, EventArgs e)
         {
-            int counter = 60;
-            Timer.Tick += new EventHandler(TimerCount);
-            Timer.Start();
-            WordTimer.Start();
-            TimeLeft.Text = counter.ToString();
-            Word.Enabled = true;
-            Start.Enabled = false;
+            if (WordsTime.currentword == Word.Text)
+            {
+                Score++;
+                Points.Text = Score.ToString();
+                ClearWords();
+            }
+        }
+        public void ClearWords()
+        {
+            Word.Text = string.Empty;
             GivenWord.Text = WordsTime.GenerateRandomWord();
         }
         private void Return_Click(object sender, EventArgs e)
@@ -65,15 +78,5 @@ namespace TypingGame
             Timer.Stop();
         }
         public Form GoToTimedTyping { get; set; }
-
-        private void WordTimer_Tick(object sender, EventArgs e)
-        {
-            if (WordsTime.currentword == Word.Text)
-            {
-                Score++;
-                Points.Text = Score.ToString();
-                EnterWords();
-            }
-        }
     }
 }

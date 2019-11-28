@@ -12,28 +12,38 @@ namespace TypingGame
 {
     public partial class SandboxTyping : Form
     {
-        WordGenerator WordsFree = new WordGenerator();
+        readonly WordGenerator WordsFree = new WordGenerator();
+        private int Score;
         public SandboxTyping()
         {
             InitializeComponent();
             CorrectScore.Text = "0";
-        }
 
-        private int Score;
-
-        private void Word2_KeyDown_1(object sender, KeyEventArgs e)
-        {
-
-            if (e.KeyCode == Keys.Enter)
+            foreach (var button in this.Controls.OfType<Button>())
             {
-                if (WordsFree.currentword == Word.Text && e.KeyCode == Keys.Enter)
-                {
-                    Score++;
-                    CorrectScore.Text = Score.ToString();
-                }
-                Word.Text = string.Empty;
-                GivenWord.Text = WordsFree.GenerateRandomWord();
+                button.TabStop = false;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
             }
+        }
+        private void SandboxTyping_Load(object sender, EventArgs e)
+        {
+            GivenWord.Text = WordsFree.GenerateRandomWord();
+            WordTimer.Start();
+        }
+        private void WordTimer_Tick(object sender, EventArgs e)
+        {
+            if (WordsFree.currentword == Word.Text)
+            {
+                Score++;
+                CorrectScore.Text = Score.ToString();
+                ClearWords();
+            }
+        }
+        public void ClearWords()
+        {
+            Word.Text = string.Empty;
+            GivenWord.Text = WordsFree.GenerateRandomWord();
         }
         public Form GoToSandbox { get; set; }
         private void Return_Click(object sender, EventArgs e)
@@ -42,17 +52,6 @@ namespace TypingGame
             StartScreen asd = new StartScreen();
             asd.GoToStartScreen = this;
             asd.Show();
-        }
-
-        private void SandboxTyping_Load(object sender, EventArgs e)
-        {
-            GivenWord.Text = WordsFree.GenerateRandomWord();
-            foreach (var button in this.Controls.OfType<Button>())
-            {
-                button.TabStop = false;
-                button.FlatStyle = FlatStyle.Flat;
-                button.FlatAppearance.BorderSize = 0;
-            }
         }
     }
 }

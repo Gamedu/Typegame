@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SandboxTyping));
             this.GivenWord = new System.Windows.Forms.Label();
             this.Word = new System.Windows.Forms.TextBox();
             this.CorrectScore = new System.Windows.Forms.Label();
             this.Return = new System.Windows.Forms.Button();
+            this.WordTimer = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // GivenWord
@@ -55,7 +58,7 @@
             this.Word.Name = "Word";
             this.Word.Size = new System.Drawing.Size(489, 61);
             this.Word.TabIndex = 3;
-            this.Word.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Word2_KeyDown_1);
+            //this.Word.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Word2_KeyDown_1);
             // 
             // CorrectScore
             // 
@@ -79,6 +82,10 @@
             this.Return.UseVisualStyleBackColor = false;
             this.Return.Click += new System.EventHandler(this.Return_Click);
             // 
+            // WordTimer
+            // 
+            this.WordTimer.Tick += new System.EventHandler(this.WordTimer_Tick);
+            // 
             // SandboxTyping
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -89,6 +96,7 @@
             this.Controls.Add(this.CorrectScore);
             this.Controls.Add(this.Word);
             this.Controls.Add(this.GivenWord);
+            this.DoubleBuffered = true;
             this.Name = "SandboxTyping";
             this.Text = "SandboxTyping";
             this.Load += new System.EventHandler(this.SandboxTyping_Load);
@@ -103,5 +111,7 @@
         private System.Windows.Forms.TextBox Word;
         private System.Windows.Forms.Label CorrectScore;
         private System.Windows.Forms.Button Return;
+        private System.Windows.Forms.Timer WordTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }
