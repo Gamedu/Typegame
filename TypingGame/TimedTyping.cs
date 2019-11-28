@@ -21,35 +21,28 @@ namespace TypingGame
         {
             InitializeComponent();
             Word.Enabled = false;
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.TabStop = false;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+            }
         }
         public void EnterWords()
         {
             Word.Text = string.Empty;
             GivenWord.Text = WordsTime.GenerateRandomWord();
         }
-        private void CheckAnswer(object sender, KeyEventArgs e)
-        {
-            if (WordsTime.currentword == Word.Text && e.KeyCode == Keys.Enter)
-            {
-                Score++;
-                Points.Text = "Punten : " + Score;
-            }
-            if (e.KeyCode == Keys.Enter)
-            {
-                EnterWords();
-            }
-        }
         private void TimerCount(object sender, EventArgs e)
         {
             counter--;
-            TimeLeft.Text = ("Tijd over : ") + counter.ToString();
+            TimeLeft.Text = counter.ToString();
             if (counter == 0)
             {
                 Timer.Stop();
                 MessageBox.Show("Tijd is op");
                 Score = 0;
                 Start.Enabled = true;
-                Start.Text = "Restart";
             }
         }
         public void StartTest(object sender, EventArgs e)
@@ -57,7 +50,8 @@ namespace TypingGame
             int counter = 60;
             Timer.Tick += new EventHandler(TimerCount);
             Timer.Start();
-            TimeLeft.Text = ("Tijd over : ") + counter.ToString();
+            WordTimer.Start();
+            TimeLeft.Text = counter.ToString();
             Word.Enabled = true;
             Start.Enabled = false;
             GivenWord.Text = WordsTime.GenerateRandomWord();
@@ -68,7 +62,18 @@ namespace TypingGame
             StartScreen asd = new StartScreen();
             asd.GoToStartScreen = this;
             asd.Show();
+            Timer.Stop();
         }
         public Form GoToTimedTyping { get; set; }
+
+        private void WordTimer_Tick(object sender, EventArgs e)
+        {
+            if (WordsTime.currentword == Word.Text)
+            {
+                Score++;
+                Points.Text = Score.ToString();
+                EnterWords();
+            }
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.Start = new System.Windows.Forms.Button();
             this.Return = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.Label();
+            this.WordTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,76 +56,82 @@
             // Timer
             // 
             this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.WordTimer_Tick);
             // 
             // TimeLeft
             // 
             this.TimeLeft.AutoSize = true;
             this.TimeLeft.BackColor = System.Drawing.Color.Transparent;
-            this.TimeLeft.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeLeft.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimeLeft.ForeColor = System.Drawing.Color.Black;
-            this.TimeLeft.Location = new System.Drawing.Point(871, 81);
+            this.TimeLeft.Location = new System.Drawing.Point(53, 81);
             this.TimeLeft.Name = "TimeLeft";
-            this.TimeLeft.Size = new System.Drawing.Size(156, 38);
+            this.TimeLeft.Size = new System.Drawing.Size(78, 55);
             this.TimeLeft.TabIndex = 1;
-            this.TimeLeft.Text = "Tijd over :";
+            this.TimeLeft.Text = "60";
             // 
             // GivenWord
             // 
             this.GivenWord.AutoSize = true;
             this.GivenWord.BackColor = System.Drawing.Color.Transparent;
-            this.GivenWord.Font = new System.Drawing.Font("Arial", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GivenWord.Location = new System.Drawing.Point(249, 81);
+            this.GivenWord.Font = new System.Drawing.Font("Comic Sans MS", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GivenWord.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.GivenWord.Location = new System.Drawing.Point(312, 97);
             this.GivenWord.Name = "GivenWord";
-            this.GivenWord.Size = new System.Drawing.Size(0, 134);
+            this.GivenWord.Size = new System.Drawing.Size(0, 167);
             this.GivenWord.TabIndex = 2;
             // 
             // Word
             // 
+            this.Word.BackColor = System.Drawing.Color.Firebrick;
             this.Word.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Word.Location = new System.Drawing.Point(299, 324);
             this.Word.Name = "Word";
             this.Word.Size = new System.Drawing.Size(489, 62);
             this.Word.TabIndex = 3;
-            this.Word.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CheckAnswer);
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(497, 440);
+            this.Start.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Start.BackgroundImage")));
+            this.Start.Location = new System.Drawing.Point(423, 401);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(75, 23);
+            this.Start.Size = new System.Drawing.Size(283, 80);
             this.Start.TabIndex = 4;
-            this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = true;
             this.Start.Click += new System.EventHandler(this.StartTest);
             // 
             // Return
             // 
-            this.Return.Location = new System.Drawing.Point(106, 288);
+            this.Return.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Return.BackgroundImage")));
+            this.Return.Location = new System.Drawing.Point(-2, 472);
             this.Return.Name = "Return";
-            this.Return.Size = new System.Drawing.Size(75, 23);
+            this.Return.Size = new System.Drawing.Size(266, 96);
             this.Return.TabIndex = 5;
-            this.Return.Text = "Return";
             this.Return.UseVisualStyleBackColor = true;
             this.Return.Click += new System.EventHandler(this.Return_Click);
             // 
             // Points
             // 
             this.Points.AutoSize = true;
-            this.Points.BackColor = System.Drawing.Color.Transparent;
-            this.Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Points.Location = new System.Drawing.Point(863, 440);
+            this.Points.BackColor = System.Drawing.Color.Firebrick;
+            this.Points.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Points.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Points.Location = new System.Drawing.Point(1045, 489);
             this.Points.Name = "Points";
-            this.Points.Size = new System.Drawing.Size(164, 25);
+            this.Points.Size = new System.Drawing.Size(60, 69);
             this.Points.TabIndex = 6;
-            this.Points.Text = "Aantal woorden : ";
+            this.Points.Text = "0";
+            // 
+            // WordTimer
+            // 
+            this.WordTimer.Interval = 10;
             // 
             // TimedTyping
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1112, 562);
+            this.ClientSize = new System.Drawing.Size(1112, 563);
             this.Controls.Add(this.Points);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.Start);
@@ -132,6 +139,7 @@
             this.Controls.Add(this.GivenWord);
             this.Controls.Add(this.TimeLeft);
             this.Controls.Add(this.Points2);
+            this.DoubleBuffered = true;
             this.Name = "TimedTyping";
             this.Text = "TimedTyping";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -151,5 +159,6 @@
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button Return;
         private System.Windows.Forms.Label Points;
+        private System.Windows.Forms.Timer WordTimer;
     }
 }

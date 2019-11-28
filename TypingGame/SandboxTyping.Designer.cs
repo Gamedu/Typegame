@@ -39,16 +39,18 @@
             // 
             this.GivenWord.AutoSize = true;
             this.GivenWord.BackColor = System.Drawing.Color.Transparent;
-            this.GivenWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GivenWord.Font = new System.Drawing.Font("Comic Sans MS", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GivenWord.Location = new System.Drawing.Point(283, 88);
             this.GivenWord.Name = "GivenWord";
-            this.GivenWord.Size = new System.Drawing.Size(0, 135);
+            this.GivenWord.Size = new System.Drawing.Size(0, 167);
             this.GivenWord.TabIndex = 2;
             // 
             // Word
             // 
-            this.Word.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Word.BackColor = System.Drawing.Color.SandyBrown;
+            this.Word.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Word.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Word.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Word.Location = new System.Drawing.Point(306, 351);
             this.Word.Name = "Word";
             this.Word.Size = new System.Drawing.Size(489, 61);
@@ -58,32 +60,31 @@
             // CorrectScore
             // 
             this.CorrectScore.AutoSize = true;
-            this.CorrectScore.BackColor = System.Drawing.Color.Transparent;
-            this.CorrectScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CorrectScore.Location = new System.Drawing.Point(490, 505);
+            this.CorrectScore.BackColor = System.Drawing.Color.SandyBrown;
+            this.CorrectScore.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CorrectScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CorrectScore.Location = new System.Drawing.Point(724, 510);
             this.CorrectScore.Name = "CorrectScore";
-            this.CorrectScore.Size = new System.Drawing.Size(121, 38);
+            this.CorrectScore.Size = new System.Drawing.Size(2, 57);
             this.CorrectScore.TabIndex = 7;
-            this.CorrectScore.Text = "Score :";
             // 
             // Return
             // 
-            this.Return.BackColor = System.Drawing.Color.Transparent;
-            this.Return.Location = new System.Drawing.Point(93, 422);
+            this.Return.BackColor = System.Drawing.Color.Black;
+            this.Return.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Return.BackgroundImage")));
+            this.Return.Location = new System.Drawing.Point(0, 525);
             this.Return.Name = "Return";
-            this.Return.Size = new System.Drawing.Size(75, 23);
+            this.Return.Size = new System.Drawing.Size(265, 44);
             this.Return.TabIndex = 9;
-            this.Return.Text = "Return";
             this.Return.UseVisualStyleBackColor = false;
             this.Return.Click += new System.EventHandler(this.Return_Click);
             // 
             // SandboxTyping
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1112, 562);
+            this.ClientSize = new System.Drawing.Size(1112, 568);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.CorrectScore);
             this.Controls.Add(this.Word);

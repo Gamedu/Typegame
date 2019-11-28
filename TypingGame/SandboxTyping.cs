@@ -16,6 +16,7 @@ namespace TypingGame
         public SandboxTyping()
         {
             InitializeComponent();
+            CorrectScore.Text = "0";
         }
 
         private int Score;
@@ -28,7 +29,7 @@ namespace TypingGame
                 if (WordsFree.currentword == Word.Text && e.KeyCode == Keys.Enter)
                 {
                     Score++;
-                    CorrectScore.Text = "Score : " + Score;
+                    CorrectScore.Text = Score.ToString();
                 }
                 Word.Text = string.Empty;
                 GivenWord.Text = WordsFree.GenerateRandomWord();
@@ -46,6 +47,12 @@ namespace TypingGame
         private void SandboxTyping_Load(object sender, EventArgs e)
         {
             GivenWord.Text = WordsFree.GenerateRandomWord();
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.TabStop = false;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+            }
         }
     }
 }
