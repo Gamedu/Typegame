@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 
 namespace TypingGame
@@ -7,8 +8,8 @@ namespace TypingGame
     public partial class TimedTyping : Form
     {
         readonly WordGenerator WordsTime = new WordGenerator();
-
-        private int Score;
+        SoundPlayer TimedMusic = new SoundPlayer();
+        int Score;
         private int counter = 60;
 
         public TimedTyping()
@@ -23,43 +24,40 @@ namespace TypingGame
                 button.FlatStyle = FlatStyle.Flat;
                 button.FlatAppearance.BorderSize = 0;
             }
+            TimedMusic.SoundLocation = "RacingMusic.wav";
+            UnmuteButton.Visible = false;
         }
         public void StartTest(object sender, EventArgs e)
         {
-            var counter = 60;
-
             Timer.Start();
             WordTimer.Start();
-            
+
             Word.Enabled = true;
             Start.Enabled = false;
-            
+
             GivenWord.Text = WordsTime.GenerateRandomWord();
             TimeLeft.Text = counter.ToString();
         }
-        private void TimerCount(object sender, EventArgs e)
+        public void TimerCount(object sender, EventArgs e)
         {
             counter--;
             TimeLeft.Text = counter.ToString();
             if (counter == 0)
             {
                 Timer.Stop();
-
-                Score = 0;
-                counter = 60;
-
                 Start.Enabled = true;
                 Word.Enabled = false;
 
                 GivenWord.Text = "";
                 MessageBox.Show("Tijd is op");
+                counter = 60;
             }
         }
         private void CheckWord(object sender, EventArgs e)
         {
             if (GivenWord.Text.Length == Word.TextLength)
             {
-                if (WordsTime.currentword == Word.Text)
+                if (GivenWord.Text == Word.Text)
                 {
                     Score++;
                     Points.Text = Score.ToString();
@@ -85,5 +83,24 @@ namespace TypingGame
             Timer.Stop();
         }
         public Form GoToTimedTyping { get; set; }
+
+        private void TimedTyping_Load(object sender, EventArgs e)
+        {
+            TimedMusic.PlayLooping();
+        }
+
+        private void MuteButton_Click(object sender, EventArgs e)
+        {
+            TimedMusic.Stop();
+            MuteButton.Visible = false;
+            UnmuteButton.Visible = true;
+        }
+
+        private void UnmuteButton_Click(object sender, EventArgs e)
+        {
+            TimedMusic.PlayLooping();
+            UnmuteButton.Visible = false;
+            MuteButton.Visible = true;
+        }
     }
 }

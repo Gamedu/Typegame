@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace TypingGame
 {
     public partial class StartScreen : Form
     {
+        System.Media.SoundPlayer StartScreenMusic = new SoundPlayer();
         public StartScreen()
         {
             InitializeComponent();
@@ -23,6 +19,9 @@ namespace TypingGame
                 button.FlatStyle = FlatStyle.Flat;
                 button.FlatAppearance.BorderSize = 0;
             }
+
+            StartScreenMusic.SoundLocation = "StartMusic.wav";
+            UnmuteButton.Visible = false;
         }
         public Form GoToStartScreen { get; set; }
         private void TimingTyping(object sender, EventArgs e)
@@ -31,6 +30,7 @@ namespace TypingGame
             TimedTyping asd = new TimedTyping();
             asd.GoToTimedTyping = this;
             asd.Show();
+
         }
         private void SandboxTyping(object sender, EventArgs e)
         {
@@ -38,6 +38,30 @@ namespace TypingGame
             SandboxTyping asd = new SandboxTyping();
             asd.GoToSandbox = this;
             asd.Show();
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StartScreen_Load(object sender, EventArgs e)
+        {
+            StartScreenMusic.PlayLooping();
+        }
+
+        private void MuteMusic_Click(object sender, EventArgs e)
+        {
+            StartScreenMusic.Stop();
+            MuteButton.Visible = false;
+            UnmuteButton.Visible = true;
+        }
+
+        private void UnmuteButton_Click(object sender, EventArgs e)
+        {
+            StartScreenMusic.PlayLooping();
+            UnmuteButton.Visible = false;
+            MuteButton.Visible = true;
         }
     }
 }

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartScreen));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.MuteButton = new System.Windows.Forms.Button();
+            this.UnmuteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -47,6 +49,7 @@
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.TimingTyping);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button2
             // 
@@ -64,6 +67,26 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.SandboxTyping);
             // 
+            // MuteButton
+            // 
+            this.MuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MuteButton.BackgroundImage")));
+            this.MuteButton.Location = new System.Drawing.Point(1015, 12);
+            this.MuteButton.Name = "MuteButton";
+            this.MuteButton.Size = new System.Drawing.Size(84, 69);
+            this.MuteButton.TabIndex = 2;
+            this.MuteButton.UseVisualStyleBackColor = true;
+            this.MuteButton.Click += new System.EventHandler(this.MuteMusic_Click);
+            // 
+            // UnmuteButton
+            // 
+            this.UnmuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UnmuteButton.BackgroundImage")));
+            this.UnmuteButton.Location = new System.Drawing.Point(1016, 12);
+            this.UnmuteButton.Name = "UnmuteButton";
+            this.UnmuteButton.Size = new System.Drawing.Size(84, 69);
+            this.UnmuteButton.TabIndex = 3;
+            this.UnmuteButton.UseVisualStyleBackColor = true;
+            this.UnmuteButton.Click += new System.EventHandler(this.UnmuteButton_Click);
+            // 
             // StartScreen
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -72,11 +95,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1112, 562);
+            this.Controls.Add(this.UnmuteButton);
+            this.Controls.Add(this.MuteButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximumSize = new System.Drawing.Size(1130, 609);
             this.Name = "StartScreen";
             this.Text = "StartScreen";
+            this.Load += new System.EventHandler(this.StartScreen_Load);
             this.ResumeLayout(false);
 
         }
@@ -85,6 +111,8 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button MuteButton;
+        private System.Windows.Forms.Button UnmuteButton;
     }
 }
 

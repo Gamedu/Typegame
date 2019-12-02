@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace TypingGame
@@ -13,6 +8,7 @@ namespace TypingGame
     public partial class SandboxTyping : Form
     {
         readonly WordGenerator WordsFree = new WordGenerator();
+        SoundPlayer SandboxMusic = new SoundPlayer();
         private int Score;
         public SandboxTyping()
         {
@@ -25,18 +21,20 @@ namespace TypingGame
                 button.FlatStyle = FlatStyle.Flat;
                 button.FlatAppearance.BorderSize = 0;
             }
+            SandboxMusic.SoundLocation = "SandboxMusic.wav";
+            UnmuteButton.Visible = false;
         }
         private void SandboxTyping_Load(object sender, EventArgs e)
         {
             GivenWord.Text = WordsFree.GenerateRandomWord();
             WordTimer.Start();
+            SandboxMusic.PlayLooping();
         }
         private void WordTimer_Tick(object sender, EventArgs e)
         {
-
             if (GivenWord.Text.Length == Word.TextLength)
             {
-                if (WordsFree.currentword == Word.Text)
+                if (GivenWord.Text == Word.Text)
                 {
                     Score++;
                     CorrectScore.Text = Score.ToString();
@@ -47,7 +45,6 @@ namespace TypingGame
                     ClearWords();
                 }
             }
-
         }
         public void ClearWords()
         {
@@ -62,6 +59,21 @@ namespace TypingGame
             asd.GoToStartScreen = this;
             asd.Show();
         }
+
+        private void UnmuteButton_Click(object sender, EventArgs e)
+        {
+            SandboxMusic.PlayLooping();
+            UnmuteButton.Visible = false;
+            MuteButton.Visible = true;
+        }
+
+        private void MuteButton_Click(object sender, EventArgs e)
+        {
+            SandboxMusic.Stop();
+            MuteButton.Visible = false;
+            UnmuteButton.Visible = true;
+        }
+
     }
 }
 

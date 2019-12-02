@@ -36,6 +36,8 @@
             this.Return = new System.Windows.Forms.Button();
             this.WordTimer = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.MuteButton = new System.Windows.Forms.Button();
+            this.UnmuteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // GivenWord
@@ -85,12 +87,34 @@
             // 
             this.WordTimer.Tick += new System.EventHandler(this.WordTimer_Tick);
             // 
+            // MuteButton
+            // 
+            this.MuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MuteButton.BackgroundImage")));
+            this.MuteButton.Location = new System.Drawing.Point(1029, 0);
+            this.MuteButton.Name = "MuteButton";
+            this.MuteButton.Size = new System.Drawing.Size(83, 69);
+            this.MuteButton.TabIndex = 11;
+            this.MuteButton.UseVisualStyleBackColor = true;
+            this.MuteButton.Click += new System.EventHandler(this.MuteButton_Click);
+            // 
+            // UnmuteButton
+            // 
+            this.UnmuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UnmuteButton.BackgroundImage")));
+            this.UnmuteButton.Location = new System.Drawing.Point(1029, 0);
+            this.UnmuteButton.Name = "UnmuteButton";
+            this.UnmuteButton.Size = new System.Drawing.Size(83, 69);
+            this.UnmuteButton.TabIndex = 12;
+            this.UnmuteButton.UseVisualStyleBackColor = true;
+            this.UnmuteButton.Click += new System.EventHandler(this.UnmuteButton_Click);
+            // 
             // SandboxTyping
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1112, 568);
+            this.Controls.Add(this.UnmuteButton);
+            this.Controls.Add(this.MuteButton);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.CorrectScore);
             this.Controls.Add(this.Word);
@@ -112,5 +136,7 @@
         private System.Windows.Forms.Button Return;
         private System.Windows.Forms.Timer WordTimer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button MuteButton;
+        private System.Windows.Forms.Button UnmuteButton;
     }
 }

@@ -39,6 +39,9 @@
             this.Return = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.Label();
             this.WordTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.MuteButton = new System.Windows.Forms.Button();
+            this.UnmuteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Points2
@@ -114,6 +117,7 @@
             this.Points.BackColor = System.Drawing.Color.Firebrick;
             this.Points.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Points.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Points.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Points.Location = new System.Drawing.Point(1045, 489);
             this.Points.Name = "Points";
             this.Points.Size = new System.Drawing.Size(60, 69);
@@ -122,7 +126,37 @@
             // 
             // WordTimer
             // 
+            this.WordTimer.Interval = 10;
             this.WordTimer.Tick += new System.EventHandler(this.CheckWord);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // MuteButton
+            // 
+            this.MuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MuteButton.BackgroundImage")));
+            this.MuteButton.Location = new System.Drawing.Point(1020, 12);
+            this.MuteButton.Name = "MuteButton";
+            this.MuteButton.Size = new System.Drawing.Size(80, 68);
+            this.MuteButton.TabIndex = 8;
+            this.MuteButton.UseVisualStyleBackColor = true;
+            this.MuteButton.Click += new System.EventHandler(this.MuteButton_Click);
+            // 
+            // UnmuteButton
+            // 
+            this.UnmuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UnmuteButton.BackgroundImage")));
+            this.UnmuteButton.Location = new System.Drawing.Point(1020, 12);
+            this.UnmuteButton.Name = "UnmuteButton";
+            this.UnmuteButton.Size = new System.Drawing.Size(80, 68);
+            this.UnmuteButton.TabIndex = 9;
+            this.UnmuteButton.UseVisualStyleBackColor = true;
+            this.UnmuteButton.Click += new System.EventHandler(this.UnmuteButton_Click);
             // 
             // TimedTyping
             // 
@@ -130,6 +164,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1112, 563);
+            this.Controls.Add(this.UnmuteButton);
+            this.Controls.Add(this.MuteButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Points);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.Start);
@@ -141,6 +178,7 @@
             this.MaximumSize = new System.Drawing.Size(1130, 610);
             this.Name = "TimedTyping";
             this.Text = "TimedTyping";
+            this.Load += new System.EventHandler(this.TimedTyping_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +195,8 @@
         private System.Windows.Forms.Button Return;
         private System.Windows.Forms.Label Points;
         private System.Windows.Forms.Timer WordTimer;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button MuteButton;
+        private System.Windows.Forms.Button UnmuteButton;
     }
 }

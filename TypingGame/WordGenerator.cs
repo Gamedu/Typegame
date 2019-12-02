@@ -9,7 +9,7 @@ namespace TypingGame
 {
     class WordGenerator
     {
-        private List<string> Woorden = new List<string>()
+        private List<string> Words = new List<string>()
         {
             "appel",
             "arts",
@@ -106,11 +106,11 @@ namespace TypingGame
 
         };
         private Random rnd = new Random();
-        public string currentword {get; private set;}
+        public string CurrentWord {get; private set;}
         public string GenerateRandomWord()
         {
-            currentword = Woorden[rnd.Next(Woorden.Count)];
-            return currentword;
+            CurrentWord = Words[rnd.Next(Words.Count)];
+            return CurrentWord;
         }
     }
 }
