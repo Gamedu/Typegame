@@ -102,7 +102,7 @@ namespace TypingGame
             "zeker",
             "qua",
             "quiz",
-            "typen",
+            "typen"
 
         };
         private Random rnd = new Random();
@@ -110,6 +110,7 @@ namespace TypingGame
         public string GenerateRandomWord()
         {
             CurrentWord = Words[rnd.Next(Words.Count)];
+            Words.Remove(CurrentWord);
             return CurrentWord;
         }
     }
