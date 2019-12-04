@@ -39,7 +39,6 @@
             this.Return = new System.Windows.Forms.Button();
             this.Points = new System.Windows.Forms.Label();
             this.WordTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.MuteButton = new System.Windows.Forms.Button();
             this.UnmuteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -129,15 +128,6 @@
             this.WordTimer.Interval = 10;
             this.WordTimer.Tick += new System.EventHandler(this.CheckWord);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MuteButton
             // 
             this.MuteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MuteButton.BackgroundImage")));
@@ -166,7 +156,6 @@
             this.ClientSize = new System.Drawing.Size(1112, 563);
             this.Controls.Add(this.UnmuteButton);
             this.Controls.Add(this.MuteButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.Points);
             this.Controls.Add(this.Return);
             this.Controls.Add(this.Start);
@@ -195,7 +184,6 @@
         private System.Windows.Forms.Button Return;
         private System.Windows.Forms.Label Points;
         private System.Windows.Forms.Timer WordTimer;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button MuteButton;
         private System.Windows.Forms.Button UnmuteButton;
     }

@@ -61,7 +61,7 @@ namespace TypingGame
         }
 
         private void UnmuteButton_Click(object sender, EventArgs e)
-        {
+        { 
             SandboxMusic.PlayLooping();
             UnmuteButton.Visible = false;
             MuteButton.Visible = true;

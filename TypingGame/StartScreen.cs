@@ -22,7 +22,11 @@ namespace TypingGame
 
             StartScreenMusic.SoundLocation = "StartMusic.wav";
             UnmuteButton.Visible = false;
+
         }
+
+
+
         public Form GoToStartScreen { get; set; }
         private void TimingTyping(object sender, EventArgs e)
         {

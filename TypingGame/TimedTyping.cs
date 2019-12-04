@@ -31,11 +31,14 @@ namespace TypingGame
         {
             Timer.Start();
             WordTimer.Start();
+            Score = 0;
+            Points.Text = Score.ToString();
 
             Word.Enabled = true;
             Start.Enabled = false;
 
             GivenWord.Text = WordsTime.GenerateRandomWord();
+
             TimeLeft.Text = counter.ToString();
         }
         public void TimerCount(object sender, EventArgs e)
