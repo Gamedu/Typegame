@@ -14,7 +14,6 @@ namespace TypingGame
         {
             InitializeComponent();
             CorrectScore.Text = "0";
-
             foreach (var button in this.Controls.OfType<Button>())
             {
                 button.TabStop = false;
@@ -26,9 +25,9 @@ namespace TypingGame
         }
         private void SandboxTyping_Load(object sender, EventArgs e)
         {
-            GivenWord.Text = WordsFree.GenerateRandomWord();
-            WordTimer.Start();
             SandboxMusic.PlayLooping();
+            WordTimer.Start();
+            GivenWord.Text = WordsFree.GenerateRandomWord();
         }
         private void WordTimer_Tick(object sender, EventArgs e)
         {
@@ -39,9 +38,7 @@ namespace TypingGame
                     Score++;
                     CorrectScore.Text = Score.ToString();
                     ClearWords();
-                }
-                else
-                {
+                }else{
                     ClearWords();
                 }
             }
@@ -58,6 +55,7 @@ namespace TypingGame
             StartScreen asd = new StartScreen();
             asd.GoToStartScreen = this;
             asd.Show();
+            this.Close();
         }
 
         private void UnmuteButton_Click(object sender, EventArgs e)
@@ -73,7 +71,6 @@ namespace TypingGame
             MuteButton.Visible = false;
             UnmuteButton.Visible = true;
         }
-
     }
 }
 

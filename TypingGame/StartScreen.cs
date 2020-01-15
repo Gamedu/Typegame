@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Windows.Forms;
@@ -9,23 +8,20 @@ namespace TypingGame
     public partial class StartScreen : Form
     {
         System.Media.SoundPlayer StartScreenMusic = new SoundPlayer();
+        new WordGenerator LoadWords = new WordGenerator();
         public StartScreen()
         {
             InitializeComponent();
-
             foreach (var button in this.Controls.OfType<Button>())
             {
                 button.TabStop = false;
                 button.FlatStyle = FlatStyle.Flat;
                 button.FlatAppearance.BorderSize = 0;
             }
-
             StartScreenMusic.SoundLocation = "StartMusic.wav";
             UnmuteButton.Visible = false;
-
+            string Load = LoadWords.GenerateRandomWord();
         }
-
-
 
         public Form GoToStartScreen { get; set; }
         private void TimingTyping(object sender, EventArgs e)
@@ -34,7 +30,6 @@ namespace TypingGame
             TimedTyping asd = new TimedTyping();
             asd.GoToTimedTyping = this;
             asd.Show();
-
         }
         private void SandboxTyping(object sender, EventArgs e)
         {
@@ -42,11 +37,6 @@ namespace TypingGame
             SandboxTyping asd = new SandboxTyping();
             asd.GoToSandbox = this;
             asd.Show();
-        }
-
-        private void button1_MouseHover(object sender, EventArgs e)
-        {
-
         }
 
         private void StartScreen_Load(object sender, EventArgs e)

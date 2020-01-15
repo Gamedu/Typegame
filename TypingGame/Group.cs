@@ -12,10 +12,12 @@ namespace TypingGame
     using System;
     using System.Collections.Generic;
     
-    public partial class TableWord
+    public partial class Group
     {
-        public int Id { get; set; }
-        public string Word { get; set; }
-        public int Cat { get; set; }
+        public int GroupId { get; set; }
+        public string GroupName { get; set; }
+        public Nullable<int> School_SchoolId { get; set; }
+    
+        public virtual School School { get; set; }
     }
 }

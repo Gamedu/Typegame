@@ -11,7 +11,9 @@ namespace TypingGame
         SoundPlayer TimedMusic = new SoundPlayer();
         int Score;
         private int counter = 60;
-
+        private int correct;
+        private int incorrect;
+        private int total;
         public TimedTyping()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace TypingGame
             WordTimer.Start();
             Score = 0;
             Points.Text = Score.ToString();
+            this.ActiveControl = Word;  
 
             Word.Enabled = true;
             Start.Enabled = false;
@@ -52,8 +55,25 @@ namespace TypingGame
                 Word.Enabled = false;
 
                 GivenWord.Text = "";
-                MessageBox.Show("Tijd is op");
                 counter = 60;
+
+                using (dbi441943Entities6 DbContext = new dbi441943Entities6())
+                {
+                    var getUser = DbContext.AspNetUsers.Where(s => s.Email== "ryanhouben1998@gmail.com").FirstOrDefault();
+
+                    var newScore = new TypingGameScore()
+                    {
+                        AspNetUser = getUser,
+                        Correct = correct,
+                        InCorrect = incorrect,
+                        TotalScore = total,
+                        ResultDateTime = DateTime.Now
+                    };
+
+                    DbContext.TypingGameScores.Add(newScore);
+                    
+                    DbContext.SaveChanges();
+                }
             }
         }
         private void CheckWord(object sender, EventArgs e)
@@ -63,12 +83,16 @@ namespace TypingGame
                 if (GivenWord.Text == Word.Text)
                 {
                     Score++;
+                    correct++;
+                    total++;
                     Points.Text = Score.ToString();
                     ClearWords();
                 }
                 else
                 {
                     ClearWords();
+                    incorrect++;
+                    total++;
                 }
             }
         }
@@ -84,21 +108,19 @@ namespace TypingGame
             asd.GoToStartScreen = this;
             asd.Show();
             Timer.Stop();
+            this.Close();
         }
         public Form GoToTimedTyping { get; set; }
-
         private void TimedTyping_Load(object sender, EventArgs e)
         {
             TimedMusic.PlayLooping();
         }
-
         private void MuteButton_Click(object sender, EventArgs e)
         {
             TimedMusic.Stop();
             MuteButton.Visible = false;
             UnmuteButton.Visible = true;
         }
-
         private void UnmuteButton_Click(object sender, EventArgs e)
         {
             TimedMusic.PlayLooping();
